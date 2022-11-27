@@ -185,7 +185,8 @@
         <!--
           - load more button
         -->
-        <button class="load-more">LOAD MORE</button>
+        <button class="load-more" id="previous">Previous</button>
+        <button class="load-more" id="next" value="1">Next</button>
 
       </section>
       <!--
@@ -370,9 +371,13 @@
   -->
   <script src="./assets/js/main.js"></script>
   <script>
-
+    var nextPageBtn = document.getElementById('next');
+    nextPageBtn.onclick = clicked => {
+      nextPageBtn.value = 2;
+      console.log(nextPageBtn.value)
+    }
     let geting = async function getAPI() {
-      let Url = "https://api.unsplash.com/photos/?client_id=kLaB41Uz7hiDNqMmgHOeDOKF0qxFicsQFuUnv0fcYpA";
+      let Url = `https://api.unsplash.com/photos?page=${Math.floor(Math.random() * 20)}&client_id=kLaB41Uz7hiDNqMmgHOeDOKF0qxFicsQFuUnv0fcYpA&`;
       await fetch(Url).then(getEle => {
         getEle.json().then(ev => {
           ev.forEach(element => {
@@ -385,8 +390,6 @@
             <div class="name">${element.user.location == null ? " " : element.user.location.substr(0, 15)}</div>
             <div class="total">${element.user.total_likes}</div>
           </div>
-
-      
             `;
             // Ending Category
             // Slider Start 
@@ -455,6 +458,12 @@
 
     // all Image body
     geting()
+    const datt = async gett => {
+      await fetch("https://api.unsplash.com/photos?page=1&client_id=kLaB41Uz7hiDNqMmgHOeDOKF0qxFicsQFuUnv0fcYpA").then(val => {
+        console.log(val.json())
+      })
+    }
+    datt()
   </script>
   <!--
     - ionicon link
