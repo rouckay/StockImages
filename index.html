@@ -13,8 +13,18 @@
 
   <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
 </head>
+<script>
+  function loading() {
+    //   var loader = document.getElementById('loader');
+    //   loader.innerHTML = `<img style="width: 50px;height:50px" src="./assets/images/loader.gif">`;
+    //   document.addEventListener('DOMContentLoaded', () => {
+    //     console.log("Loaded Ready")
+    //   })
+    // }
+    loading()
+</script>
 
-<body>
+<body onload="loading()">
 
   <!--
     - main container
@@ -93,7 +103,7 @@
 
       </div>
     </header>
-
+    <div id="loader"></div>
 
 
 
@@ -162,12 +172,10 @@
 
           </div><br>
 
-          <form>
-
-            <input type="text" name="search" id="search" style="border: 2px solid white;"
+          <form action="#">
+            <input type="text" name="search" id="searchmobile" style="border: 2px solid white;"
               placeholder="I'm looking for..." class="navbar-form-search">
-
-            <button class="navbar-form-btn" id="searchBtn">
+            <button class="navbar-form-btn" id="searchBtnMobile">
               <ion-icon name="search-outline"></ion-icon>
             </button>
 
@@ -379,33 +387,40 @@
   -->
   <script src="./assets/js/main.js"></script>
   <script>
-    var nextPageBtn = document.getElementById('next');
-    nextPageBtn.onclick = clicked => {
-      nextPageBtn.value = 2;
-      console.log(nextPageBtn.value)
-    }
-    // Start Search Photo
-    var URL = "https://api.unsplash.com/";
-    var APIKey = "client_id=kLaB41Uz7hiDNqMmgHOeDOKF0qxFicsQFuUnv0fcYpA";
-    const SearchBTN = document.getElementById('searchBtn');
-    var SearchInput = document.getElementById('search');
-    SearchBTN.onclick = async (ev) => {
-      ev.preventDefault();
-      var SearchReq = `${URL}search/photos?page=1&query=${SearchInput.value}&per_page=30&${APIKey}`;
-      var data = document.getElementById('data');
-      // Disable The Header Slider Section and Body Default Section for Overite The Search Resualt
-      document.getElementById('banner').style.display = "none";
-      data.style.display = "none";
-      console.log(SearchReq)
-      // Started Fetching API Data
-      await fetch(SearchReq).then(apiResp => {
-        apiResp.json().then(apiData => {
-          console.log(apiData)
-          const total = apiData.total;
+      var nextPageBtn = document.getElementById('next');
+      nextPageBtn.onclick = clicked => {
+        nextPageBtn.value = 2;
+        console.log(nextPageBtn.value)
+      }
+      // Start Search Photo
+      var URL = "https://api.unsplash.com/";
+      var APIKey = "client_id=kLaB41Uz7hiDNqMmgHOeDOKF0qxFicsQFuUnv0fcYpA";
+      const SearchBTN = document.getElementById('searchBtn');
+      var SearchInput = document.getElementById('search');
+      const searchmobile = document.getElementById('searchmobile');
+      const searchBtnMobile = document.getElementById('searchBtnMobile');
+      // Search Mobile Started
+      searchBtnMobile.onclick = async (ev) => {
+        ev.preventDefault();
+        searchmobile.style.opacity = '.1'
+        searchmobile.onclick = () => {
+          location.reload();
+          console.log("reloaded")
+        };
+        var SearchReqMobile = `${URL}search/photos?page=1&query=${searchmobile.value}&per_page=30&${APIKey}`;
+        var data = document.getElementById('data');
+        // Disable The Header Slider Section and Body Default Section for Overite The Search Resualt
+        document.getElementById('banner').style.display = "none";
+        data.style.display = "none";
+        console.log(SearchReqMobile)
+        // Started Fetching API Data
+        await fetch(SearchReqMobile).then(apiResp => {
+          apiResp.json().then(apiData => {
+            console.log("Hello I am Mobile")
+            const total = apiData.total;
 
-          apiData.results.forEach(searchEle => {
-            document.getElementById('searchedData').innerHTML +=
-              `<div class="movie-card">
+            apiData.results.forEach(searchEle => {
+              const LoadedReady = `<div class="movie-card">
   <div class="card-head">
     <img src="${searchEle.urls.small}" alt="" class="card-img" download>
     <div class="card-overlay">
@@ -431,34 +446,84 @@
     </div>
   </div>
 </div>`;
+              document.getElementById('searchedData').innerHTML += LoadedReady == null ? `<img style="width: 50px;height:50px" src="./assets/images/loader.gif">` : LoadedReady
+            })
           })
         })
-      })
-    }
-    // END Search Photo
-    let geting = function getAPI() {
-      // let Url = `https://api.unsplash.com/photos?page=${Math.floor(Math.random() * 200)}&client_id=kLaB41Uz7hiDNqMmgHOeDOKF0qxFicsQFuUnv0fcYpA&`;
-      let DATA = `${URL}/photos?page=1&${APIKey}`;
-      let catData = `${URL}photos?page=10&${APIKey}&per_page=12`;
-      fetch(catData).then(catF => {
-        catF.json().then(CatData => {
-          CatData.forEach(ele => {
-            document.getElementById('cat').innerHTML += `
+      }
+      // ENDED Search Mobile Started
+      SearchBTN.onclick = async (ev) => {
+        ev.preventDefault();
+        var SearchReq = `${URL}search/photos?page=1&query=${SearchInput.value}&per_page=30&${APIKey}`;
+        var data = document.getElementById('data');
+        // Disable The Header Slider Section and Body Default Section for Overite The Search Resualt
+        document.getElementById('banner').style.display = "none";
+        data.style.display = "none";
+        console.log(SearchReq)
+        // Started Fetching API Data
+        await fetch(SearchReq).then(apiResp => {
+          apiResp.json().then(apiData => {
+            console.log(apiData)
+            const total = apiData.total;
+
+            apiData.results.forEach(searchEle => {
+              document.getElementById('searchedData').innerHTML +=
+                `<div class="movie-card">
+  <div class="card-head">
+    <img src="${searchEle.urls.small}" alt="" class="card-img" download>
+    <div class="card-overlay">
+      <div class="bookmark">
+        <ion-icon name="bookmark-outline"></ion-icon>
+      </div>
+      <div class="rating">
+        <ion-icon name="star-outline"></ion-icon>
+        <span>${searchEle.likes}</span>
+      </div>
+      <div class="play">
+        <ion-icon name="play-circle-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <a target="_blink" href="${searchEle.urls.full}" class="btn btn-success
+    " style="float:right;color:green" download>Download</a>
+    <h3 class="card-title">${searchEle.user.first_name}</h3>
+    <div class="card-info">
+      <span class="genre">${searchEle.user.location}</span>
+      <span class="year" >${searchEle.created_at.substr(0, 7)}</span>
+    </div>
+  </div>
+</div>`;
+            })
+          })
+        })
+      }
+      // END Search Photo
+      let geting = function getAPI() {
+        // let Url = `https://api.unsplash.com/photos?page=${Math.floor(Math.random() * 200)}&client_id=kLaB41Uz7hiDNqMmgHOeDOKF0qxFicsQFuUnv0fcYpA&`;
+        let DATA = `${URL}/photos?page=1&${APIKey}`;
+        let catData = `${URL}photos?page=10&${APIKey}&per_page=12`;
+        fetch(catData).then(catF => {
+          catF.json().then(CatData => {
+            CatData.forEach(ele => {
+              document.getElementById('cat').innerHTML += `
             <div class="category-card">
             <img src="${ele.urls.small}" alt="" class="${ele.username}">
             <div class="name">${ele.user.location == null ? " " : ele.user.location.substr(0, 15)}</div>
             <div class="total">${ele.user.total_likes}</div>
+
           </div>
             `;
+            })
           })
         })
-      })
-      // Get Photos
-      fetch(DATA).then(getEle => {
-        getEle.json().then(ev => {
-          ev.forEach(element => {
-            // Slider Start 
-            document.getElementById('banner').innerHTML = `
+        // Get Photos
+        fetch(DATA).then(getEle => {
+          getEle.json().then(ev => {
+            ev.forEach(element => {
+              console.log(element)
+              // Slider Start 
+              document.getElementById('banner').innerHTML = `
             <img src="${element.urls.regular}" alt="">
 
           <div class="card-content">
@@ -483,11 +548,11 @@
 
             </div>
 
-            <h2 class="card-title">${element.user.first_name}: ${element.description}</h2>
+            <h2 class="card-title">${element.user.first_name}: ${element.user.total_photos} IMG</h2>
           </div>
             `;
-            // End  Start 
-            document.getElementById('data').innerHTML += `<div class="movie-card">
+              // End  Start 
+              document.getElementById('data').innerHTML += `<div class="movie-card">
   <div class="card-head">
     <img src="${element.urls.small}" alt="" class="card-img">
     <div class="card-overlay">
@@ -496,7 +561,7 @@
       </div>
       <div class="rating">
         <ion-icon name="star-outline"></ion-icon>
-        <span>6.4</span>
+        <span>${element.likes} &#129505;</span>
       </div>
       <div class="play">
         <ion-icon name="play-circle-outline"></ion-icon>
@@ -513,16 +578,16 @@
     </div>
   </div>
 </div>`;
-            // ENDing  Fetching API
-          });
-        })
-      }).catch(error => {
-        alert("there is An Error of Fetching Data");
-      });
-    }
+              // ENDing  Fetching API
+            });
+          })
+        }).catch(error => {
+          alert("there is An Error of Fetching Data");
+        });
+      }
 
-    // all Image body
-    geting()
+      // all Image body
+      geting()
   </script>
   <!--
     - ionicon link

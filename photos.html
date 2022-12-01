@@ -400,7 +400,7 @@
                         document.getElementById('searchedData').innerHTML +=
                             `<div class="movie-card">
   <div class="card-head">
-    <img src="${searchEle.urls.small}" alt="" class="card-img" download>
+    <img src="${searchEle.urls.small}" alt="${searchEle.urls.small}" class="card-img" download>
     <div class="card-overlay">
       <div class="bookmark">
         <ion-icon name="bookmark-outline"></ion-icon>
@@ -431,7 +431,7 @@
         // END Search Photo
         let geting = function getAPI() {
             // let Url = `https://api.unsplash.com/photos?page=${Math.floor(Math.random() * 200)}&client_id=kLaB41Uz7hiDNqMmgHOeDOKF0qxFicsQFuUnv0fcYpA&`;
-            let DATA = `${URL}/photos?page=1&${APIKey}`;
+            let DATA = `${URL}/photos?per_page=18&${APIKey}`;
             let catData = `${URL}photos?page=10&${APIKey}&per_page=12`;
             fetch(catData).then(catF => {
                 catF.json().then(CatData => {
@@ -459,7 +459,9 @@
 
               <div class="genre">
                 <ion-icon name="film"></ion-icon>
-                <span>${element.user.username}</span>
+                <span>
+                  
+                    ${element.user.username}</span>
               </div>
 
               <div class="year">
@@ -476,7 +478,7 @@
 
             </div>
 
-            <h2 class="card-title">${element.user.first_name}: ${element.description}</h2>
+            <h2 class="card-title" style="text-shadow: 2px 2px #000000;">${element.user.first_name}: ${element.user.total_photos} IMG</h2>
           </div>
             `;
                         // End  Start 
@@ -489,7 +491,7 @@
       </div>
       <div class="rating">
         <ion-icon name="star-outline"></ion-icon>
-        <span>6.4</span>
+        <span>${element.likes} &#129505;</span>
       </div>
       <div class="play">
         <ion-icon name="play-circle-outline"></ion-icon>
