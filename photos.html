@@ -6,37 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/images/icon.png" type="image/png">
-    <title>Photos</title>
+    <title>CineFlix</title>
 
-    <!--
-    - custom css link
-  -->
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/media_query.css">
 
-    <!--
-    - google font link
-  -->
     <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900"
         rel="stylesheet" />
 </head>
 
 <body>
 
-
-
+    <!--
+    - main container
+  -->
     <div class="container">
 
         <!--
-          - #HEADER SECTION
-        -->
+      - #HEADER SECTION
+    -->
 
         <header class="">
             <div class="navbar">
 
                 <!--
-              - menu button for small screen
-            -->
+          - menu button for small screen
+        -->
                 <button class="navbar-menu-btn">
                     <span class="one"></span>
                     <span class="two"></span>
@@ -49,8 +44,8 @@
                 </a>
 
                 <!--
-              - navbar navigation
-            -->
+          - navbar navigation
+        -->
 
                 <nav class="">
                     <ul class="navbar-nav">
@@ -58,20 +53,22 @@
                         <li> <a href="#" class="navbar-link">Home</a> </li>
                         <li> <a href="#category" class="navbar-link">Category</a> </li>
                         <li> <a href="#live" class="navbar-link  indicator">LIVE</a> </li>
+                        <li> <a href="photos.html" class="navbar-link  indicator">All Photos</a> </li>
 
                     </ul>
                 </nav>
 
                 <!--
-              - search and sign-in
-            -->
+          - search and sign-in
+        -->
 
                 <div class="navbar-actions">
 
                     <form action="#" class="navbar-form">
-                        <input type="text" name="search" placeholder="I'm looking for..." class="navbar-form-search">
+                        <input type="text" name="search" id="search" placeholder="I'm looking for..."
+                            class="navbar-form-search">
 
-                        <button class="navbar-form-btn">
+                        <button class="navbar-form-btn" id="searchBtn">
                             <ion-icon name="search-outline"></ion-icon>
                         </button>
 
@@ -82,8 +79,8 @@
 
 
                     <!--
-                - search button for small screen
-              -->
+            - search button for small screen
+          -->
 
                     <button class="navbar-search-btn">
                         <ion-icon name="search-outline"></ion-icon>
@@ -104,13 +101,13 @@
 
 
         <!--
-          - MAIN SECTION
-        -->
+      - MAIN SECTION
+    -->
         <main>
 
             <!--
-            - #BANNER SECTION
-          -->
+        - #BANNER SECTION
+      -->
             <section class="banner">
                 <div class="banner-card" id="banner">
 
@@ -123,13 +120,13 @@
 
 
             <!--
-            - #MOVIES SECTION
-          -->
+        - #MOVIES SECTION
+      -->
             <section class="movies">
 
                 <!--
-              - filter bar
-            -->
+          - filter bar
+        -->
                 <div class="filter-bar">
 
                     <div class="filter-dropdowns">
@@ -173,22 +170,24 @@
 
 
                 <!--
-              - movies grid
-            -->
+          - movies grid
+        -->
 
 
+                <div class="movies-grid" id="searchedData">
+                </div>
                 <div class="movies-grid" id="data">
                 </div>
                 <!--
-              - load more button
-            -->
+          - load more button
+        -->
                 <button class="load-more" id="previous">Previous</button>
                 <button class="load-more" id="next" value="1">Next</button>
 
             </section>
             <!--
-            - #CATEGORY SECTION
-          -->
+        - #CATEGORY SECTION
+      -->
             <section class="category" id="category">
 
                 <h2 class="section-heading">Category</h2>
@@ -201,33 +200,39 @@
             </section>
 
             <!--
-            - #LIVE SECTION
-          -->
+        - #LIVE SECTION
+      -->
             <section class="live" id="live">
 
-                <h2 class="section-heading">Live Tv Shows</h2>
+                <h2 class="section-heading indicator">Live Tv Shows <span style="color: rgb(255, 196, 0);">COMING
+                        SOON...</span>
+                </h2>
 
                 <div class="live-grid">
+
                     <div class="live-card">
+
                         <div class="card-head">
                             <img src="./assets/images/planet.jpg" alt="" class="card-img">
-                            <div class="live-badge">LIVE</div>
+                            <div class="live-badge indicator">LIVE</div>
                             <div class="total-viewers">305K viewers</div>
                             <div class="play">
                                 <ion-icon name="play-circle-outline"></ion-icon>
                             </div>
                         </div>
+
                         <div class="card-body">
                             <img src="./assets/images/bbcamerica.jpg" alt="" class="avatar">
                             <h3 class="card-title">Planet Earth II <br> Season 1 - Islands</h3>
                         </div>
+
                     </div>
 
                     <div class="live-card">
 
                         <div class="card-head">
                             <img src="./assets/images/got.jpg" alt="" class="card-img">
-                            <div class="live-badge">LIVE</div>
+                            <div class="live-badge indicator">LIVE</div>
                             <div class="total-viewers">1.7M viewers</div>
                             <div class="play">
                                 <ion-icon name="play-circle-outline"></ion-icon>
@@ -264,16 +269,17 @@
             </section>
         </main>
         <!--
-          - FOOTER SECTION
-        -->
+      - FOOTER SECTION
+    -->
         <footer>
 
             <div class="footer-content">
 
                 <div class="footer-brand">
                     <img src="./assets/images/logo.png" alt="" class="footer-logo">
-                    <p class="slogan">Movies & TV Shows, Online cinema,
-                        Movie database HTML Template.</p>
+                    <p class="slogan">Free Image Stock More Then <span style="color:rgb(12, 180, 20);">4,577,912</span>
+                        Image For
+                        Free.</p>
 
 
                     <div class="social-link">
@@ -301,7 +307,7 @@
                 <div class="footer-links">
                     <ul>
 
-                        <h4 class="link-heading">CineFlix</h4>
+                        <h4 class="link-heading">IMG</h4>
 
                         <li class="link-item"><a href="#">About us</a></li>
                         <li class="link-item"><a href="#">My profile</a></li>
@@ -314,17 +320,17 @@
 
                         <h4 class="link-heading">Browse</h4>
 
-                        <li class="link-item"><a href="#">Live Tv</a></li>
-                        <li class="link-item"><a href="#">Live News</a></li>
-                        <li class="link-item"><a href="#">Live Sports</a></li>
-                        <li class="link-item"><a href="#">Streaming Library</a></li>
+                        <li class="link-item indicator"><a href="#">Live Tv</a></li>
+                        <li class="link-item indicator"><a href="#">Live News</a></li>
+                        <li class="link-item indicator"><a href="#">Live Sports</a></li>
+                        <li class="link-item indicator"><a href="#">Streaming Library</a></li>
 
                     </ul>
 
                     <ul>
 
-                        <li class="link-item"><a href="#">TV Shows</a></li>
-                        <li class="link-item"><a href="#">Movies</a></li>
+                        <li class="link-item indicator"><a href="#">TV Shows</a></li>
+                        <li class="link-item indicator"><a href="#">Movies</a></li>
                         <li class="link-item"><a href="#">Kids</a></li>
                         <li class="link-item"><a href="#">Collections</a></li>
 
@@ -347,7 +353,9 @@
             <div class="footer-copyright">
 
                 <div class="copyright">
-                    <p>&copy; copyright 2021 CineFlix</p>
+                    <p>&copy; copyright 2021 IMG TARAQEE</p>
+                    <p>Developed With &#129505; By: <a style="display:inline;" href="wa.me/+93766098885">Farhad
+                            Rahmani</a> </p>
                 </div>
 
                 <div class="wrapper">
@@ -360,8 +368,8 @@
     </div>
 
     <!--
-        - custom js link
-      -->
+    - custom js link
+  -->
     <script src="./assets/js/main.js"></script>
     <script>
         var nextPageBtn = document.getElementById('next');
@@ -369,78 +377,135 @@
             nextPageBtn.value = 2;
             console.log(nextPageBtn.value)
         }
-        let geting = async function getAPI() {
-            let Url = `https://api.unsplash.com/photos?page=${Math.floor(Math.random() * 200)}&client_id=kLaB41Uz7hiDNqMmgHOeDOKF0qxFicsQFuUnv0fcYpA&`;
-            await fetch(Url).then(getEle => {
+        // Start Search Photo
+        var URL = "https://api.unsplash.com/";
+        var APIKey = "client_id=kLaB41Uz7hiDNqMmgHOeDOKF0qxFicsQFuUnv0fcYpA";
+        const SearchBTN = document.getElementById('searchBtn');
+        var SearchInput = document.getElementById('search');
+        SearchBTN.onclick = async (ev) => {
+            ev.preventDefault();
+            var SearchReq = `${URL}search/photos?page=1&query=${SearchInput.value}&per_page=30&${APIKey}`;
+            var data = document.getElementById('data');
+            // Disable The Header Slider Section and Body Default Section for Overite The Search Resualt
+            document.getElementById('banner').style.display = "none";
+            data.style.display = "none";
+            console.log(SearchReq)
+            // Started Fetching API Data
+            await fetch(SearchReq).then(apiResp => {
+                apiResp.json().then(apiData => {
+                    console.log(apiData)
+                    const total = apiData.total;
+
+                    apiData.results.forEach(searchEle => {
+                        document.getElementById('searchedData').innerHTML +=
+                            `<div class="movie-card">
+  <div class="card-head">
+    <img src="${searchEle.urls.small}" alt="" class="card-img" download>
+    <div class="card-overlay">
+      <div class="bookmark">
+        <ion-icon name="bookmark-outline"></ion-icon>
+      </div>
+      <div class="rating">
+        <ion-icon name="star-outline"></ion-icon>
+        <span>${searchEle.likes}</span>
+      </div>
+      <div class="play">
+        <ion-icon name="play-circle-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <a target="_blink" href="${searchEle.urls.full}" class="btn btn-success
+    " style="float:right;color:green" download>Download</a>
+    <h3 class="card-title">${searchEle.user.first_name}</h3>
+    <div class="card-info">
+      <span class="genre">${searchEle.user.location}</span>
+      <span class="year" >${searchEle.created_at.substr(0, 7)}</span>
+    </div>
+  </div>
+</div>`;
+                    })
+                })
+            })
+        }
+        // END Search Photo
+        let geting = function getAPI() {
+            // let Url = `https://api.unsplash.com/photos?page=${Math.floor(Math.random() * 200)}&client_id=kLaB41Uz7hiDNqMmgHOeDOKF0qxFicsQFuUnv0fcYpA&`;
+            let DATA = `${URL}/photos?page=1&${APIKey}`;
+            let catData = `${URL}photos?page=10&${APIKey}&per_page=12`;
+            fetch(catData).then(catF => {
+                catF.json().then(CatData => {
+                    CatData.forEach(ele => {
+                        document.getElementById('cat').innerHTML += `
+            <div class="category-card">
+            <img src="${ele.urls.small}" alt="" class="${ele.username}">
+            <div class="name">${ele.user.location == null ? " " : ele.user.location.substr(0, 15)}</div>
+            <div class="total">${ele.user.total_likes}</div>
+          </div>
+            `;
+                    })
+                })
+            })
+            // Get Photos
+            fetch(DATA).then(getEle => {
                 getEle.json().then(ev => {
                     ev.forEach(element => {
-                        // Starting Fetching API
-                        console.log(element)
-                        // Starting Category
-                        document.getElementById('cat').innerHTML += `
-                <div class="category-card">
-                <img src="${element.urls.small}" alt="" class="${element.username}">
-                <div class="name">${element.user.location == null ? " " : element.user.location.substr(0, 15)}</div>
-                <div class="total">${element.user.total_likes}</div>
-              </div>
-                `;
-                        // Ending Category
                         // Slider Start 
                         document.getElementById('banner').innerHTML = `
-                <img src="${element.urls.regular}" alt="">
-    
-              <div class="card-content">
-                <div class="card-info">
-    
-                  <div class="genre">
-                    <ion-icon name="film"></ion-icon>
-                    <span>${element.user.username}</span>
-                  </div>
-    
-                  <div class="year">
-                    <ion-icon name="calendar"></ion-icon>
-                    <span>${element.created_at.substr(0, 4)}</span>
-                  </div>
-    
-                  <div class="duration">
-                    <ion-icon name="time"></ion-icon>
-                    <span>${element.created_at.slice(5, 7)}</span>
-                  </div>
-    
-                  <div class="quality">HD</div>
-    
-                </div>
-    
-                <h2 class="card-title">${element.user.first_name}: ${element.description}</h2>
+            <img src="${element.urls.regular}" alt="">
+
+          <div class="card-content">
+            <div class="card-info">
+
+              <div class="genre">
+                <ion-icon name="film"></ion-icon>
+                <span>${element.user.username}</span>
               </div>
-                `;
+
+              <div class="year">
+                <ion-icon name="calendar"></ion-icon>
+                <span>${element.created_at.substr(0, 4)}</span>
+              </div>
+
+              <div class="duration">
+                <ion-icon name="time"></ion-icon>
+                <span>${element.created_at.slice(5, 7)}</span>
+              </div>
+
+              <div class="quality">HD</div>
+
+            </div>
+
+            <h2 class="card-title">${element.user.first_name}: ${element.description}</h2>
+          </div>
+            `;
                         // End  Start 
                         document.getElementById('data').innerHTML += `<div class="movie-card">
-      <div class="card-head">
-        <img src="${element.urls.small}" alt="" class="card-img">
-        <div class="card-overlay">
-          <div class="bookmark">
-            <ion-icon name="bookmark-outline"></ion-icon>
-          </div>
-          <div class="rating">
-            <ion-icon name="star-outline"></ion-icon>
-            <span>6.4</span>
-          </div>
-          <div class="play">
-            <ion-icon name="play-circle-outline"></ion-icon>
-          </div>
-        </div>
+  <div class="card-head">
+    <img src="${element.urls.small}" alt="" class="card-img">
+    <div class="card-overlay">
+      <div class="bookmark">
+        <ion-icon name="bookmark-outline"></ion-icon>
       </div>
-      <div class="card-body">
-        <a target="_blink" href="${element.urls.full}" class="btn btn-success
-        " style="float:right;color:green ">Download</a>
-        <h3 class="card-title">${element.user.first_name}</h3>
-        <div class="card-info">
-          <span class="genre">${element.user.location}</span>
-          <span class="year" >${element.created_at.substr(0, 7)}</span>
-        </div>
+      <div class="rating">
+        <ion-icon name="star-outline"></ion-icon>
+        <span>6.4</span>
       </div>
-    </div>`;
+      <div class="play">
+        <ion-icon name="play-circle-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <a target="_blink" href="${element.urls.full}" class="btn btn-success
+    " style="float:right;color:green ">Download</a>
+    <h3 class="card-title">${element.user.first_name}</h3>
+    <div class="card-info">
+      <span class="genre">${element.user.location}</span>
+      <span class="year" >${element.created_at.substr(0, 7)}</span>
+    </div>
+  </div>
+</div>`;
                         // ENDing  Fetching API
                     });
                 })
@@ -451,16 +516,10 @@
 
         // all Image body
         geting()
-        const datt = async gett => {
-            await fetch("https://api.unsplash.com/photos?page=1&client_id=kLaB41Uz7hiDNqMmgHOeDOKF0qxFicsQFuUnv0fcYpA").then(val => {
-                console.log(val.json())
-            })
-        }
-        datt()
     </script>
     <!--
-        - ionicon link
-      -->
+    - ionicon link
+  -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
